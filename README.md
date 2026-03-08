@@ -9,7 +9,6 @@ Staff updates, ping announcements, welcome system and more for your giveaway ser
 discord-bot/
 ├── config.json             (All the settings are located here)
 ├── index.js                (Main script)
-├── deploy-commands.js      (Run after any command changes)
 ├── package.json
 ├── commands/
 │   ├── staffupdate.js
@@ -41,15 +40,9 @@ Fill in the following fields:
 
 > **Enable Developer Mode:** Discord Settings > Advanced > Developer Mode ✅
 
-### 3. Register slash commands (run after every command change)
+### 3. Start the bot
 ```bash
-npm run deploy
-```
-Commands register **instantly** to your server.
-
-### 4. Start the bot
-```bash
-npm start
+npm run start
 ```
 
 ---
@@ -79,7 +72,7 @@ The `newrole` option is **optional**.
 - **Manually selected** - overrides auto-detection and uses the role you pick.
 
 **Example (auto):**
-> User has `Helper` > `/staffupdate @User promoted` > bot posts `Helper → Developer`
+> User has `Helper` > `/staffupdate @User promoted` > bot posts `Helper > Developer`
 
 **Edge case handling:**
 - No matching staff role found > error, asks you to select manually
@@ -104,7 +97,7 @@ The `newrole` option is **optional**.
 
 ### PING_MESSAGES
 
-Add or remove ping types freely. The slash command choices are built dynamically, just re-run `npm run deploy` after editing.
+Add or remove ping types freely. The slash command choices are built dynamically.
 
 ```json
 "PING_MESSAGES": {
@@ -154,7 +147,6 @@ Enable both in the [Developer Portal](https://discord.com/developers) > Your App
 | Problem | Fix |
 |---|---|
 | `Cannot find module 'discord.js'` | Run `npm install` |
-| `Missing script: "deploy"` | Run `node deploy-commands.js` directly |
-| Commands not updating | Make sure `GUILD_ID` is set in `config.json` and re-run `npm run deploy` |
+| Commands not updating | Make sure `GUILD_ID` is set in `config.json` |
 | Welcome message not sending | Check `WELCOME.channel_id` is correct and **Server Members Intent** is enabled |
 | Bot can't find staff role on user | The user must actually have the Discord role assigned, the bot reads live role data |
