@@ -1,0 +1,12 @@
+{
+  "name": "discord-giveaway-server-bot",
+  "version": "1.0.0",
+  "description": "Staff updates, ping announcements, welcome system and more for your giveaway servers!",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.15.3"
+  }
+}

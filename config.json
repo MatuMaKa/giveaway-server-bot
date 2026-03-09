@@ -1,0 +1,82 @@
+{
+  "TOKEN": "BOT_TOKEN_HERE",
+  "CLIENT_ID": "CLIENT_ID_HERE",
+  "GUILD_ID": "SERVER_ID_HERE",
+  "STAFF_ROLES": [
+    {
+      "name": "Member",
+      "id": "1234567890123456789"
+    },
+    {
+      "name": "Helper",
+      "id": "1234567890123456789"
+    },
+    {
+      "name": "Moderator",
+      "id": "1234567890123456789"
+    },
+    {
+      "name": "Senior Moderator",
+      "id": "1234567890123456789"
+    },
+    {
+      "name": "Administrator",
+      "id": "1234567890123456789"
+    },
+    {
+      "name": "Senior Administrator",
+      "id": "1234567890123456789"
+    },
+    {
+      "name": "Developer",
+      "id": "1234567890123456789"
+    },
+    {
+      "name": "Management",
+      "id": "1234567890123456789"
+    },
+    {
+      "name": "Executive",
+      "id": "1234567890123456789"
+    },
+    {
+      "name": "Co Owner",
+      "id": "1234567890123456789"
+    },
+    {
+      "name": "Owner",
+      "id": "1234567890123456789"
+    }
+  ],
+  "STAFF_UPDATE_EMBED": {
+    "title": "📋 Staff Update",
+    "color_promoted": "#57F287",
+    "color_demoted": "#ED4245",
+    "color_default": "#5865F2",
+    "description": "{user} has been **{action}** from {previousRole} to {newRole}!",
+    "footer_text": "Staff Update • {date}",
+    "footer_icon": null,
+    "thumbnail": null,
+    "show_executor": false,
+    "executor_label": "Actioned by"
+  },
+  "PING_MESSAGES": {
+    "Giveaway": "🎉 **GIVEAWAY TIME!** 🎉\nHey everyone! A giveaway is now being hosted! <@&1477364417279692881>",
+    "Quickdrop": "⚡ **QUICKDROP ALERT!** ⚡\nA quickdrop is happening RIGHT NOW! Be fast! <@&1477364383825924270>",
+    "Booster": "🚀 **BOOSTER GIVEAWAY!** 🚀\nA booster giveaway is happening RIGHT NOW! Join up! <@&1477364383825924270>"
+  },
+  "WELCOME": {
+    "channel_id": "WELCOME_CHANNEL_ID_HERE",
+    "message": "Welcome {user} 👋",
+    "embed": {
+      "title": "👋 Welcome to {serverName}!",
+      "description": "Hey {user}, welcome to **{serverName}**!\nYou are member **#{memberCount}**.\n\nMake sure to read the rules and enjoy your stay! 🎉",
+      "color": "#da00c7",
+      "footer_text": "Joined on {date} at {time}",
+      "footer_icon": null,
+      "thumbnail": "member_avatar",
+      "image": null,
+      "fields": []
+    }
+  }
+}
