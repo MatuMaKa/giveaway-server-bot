@@ -78,5 +78,34 @@
       "image": null,
       "fields": []
     }
+  },
+  "VOUCHES": {
+    "channel_id": "VOUCH_CHANNEL_ID_HERE",
+    "cooldown_seconds": 3600,
+    "allow_self_vouch": false,
+    "allow_bots": false,
+    "cooldown_bypass_roles": [
+      "COOLDOWN_BYPASS_ROLE_ID_HERE"
+    ],
+    "vouch_embed": {
+      "title": "✅ New Vouch!",
+      "description": "{vouchee} has been vouched for by {voucher}!\n\n**Reason:** {reason}",
+      "color": "#00ff00",
+      "footer_text": "Vouch • {date}",
+      "footer_icon": null,
+      "thumbnail": "vouchee_avatar",
+      "image": null,
+      "fields": []
+    },
+    "devouch_embed": {
+      "title": "❌ New Devouch!",
+      "description": "{vouchee} has been devouched by {voucher}!\n\n**Reason:** {reason}",
+      "color": "#ff0000",
+      "footer_text": "Devouch • {date}",
+      "footer_icon": null,
+      "thumbnail": "vouchee_avatar",
+      "image": null,
+      "fields": []
+    }
   }
 }

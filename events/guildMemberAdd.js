@@ -19,12 +19,12 @@ module.exports = {
 
     const now = new Date();
     const placeholders = {
-      user:        `<@${member.id}>`,
-      username:    member.user.username,
+      user: `<@${member.id}>`,
+      username: member.user.username,
       memberCount: member.guild.memberCount,
-      serverName:  member.guild.name,
-      date:        formatDate(now),
-      time:        formatTime(now),
+      serverName: member.guild.name,
+      date: formatDate(now),
+      time: formatTime(now),
     };
 
     const embedCfg = cfg.embed;
@@ -68,8 +68,8 @@ module.exports = {
     if (Array.isArray(embedCfg.fields) && embedCfg.fields.length > 0) {
       embed.addFields(
         embedCfg.fields.filter(Boolean).map((f) => ({
-          name:   parsePlaceholders(f.name,  placeholders),
-          value:  parsePlaceholders(f.value, placeholders),
+          name: parsePlaceholders(f.name,  placeholders),
+          value: parsePlaceholders(f.value, placeholders),
           inline: f.inline ?? false,
         }))
       );

@@ -12,6 +12,8 @@ discord-bot/
 ├── package.json
 ├── commands/
 │   ├── staffupdate.js
+│   ├── devouch.js
+│   ├── vouch.js
 │   └── ping.js
 ├── events/
 │   └── guildMemberAdd.js
@@ -37,6 +39,7 @@ Fill in the following fields:
 | `CLIENT_ID` | Developer Portal > Your App > General Information > Application ID |
 | `GUILD_ID` | Right-click your server in Discord > **Copy Server ID** (requires Developer Mode) |
 | `WELCOME.channel_id` | Right-click the welcome channel > **Copy Channel ID** |
+| `VOUCHES.channel_id` | Right-click the vouches/devouches channel > **Copy Channel ID** |
 
 > **Enable Developer Mode:** Discord Settings > Advanced > Developer Mode ✅
 
@@ -127,6 +130,18 @@ Add or remove ping types freely. The slash command choices are built dynamically
 | `"server_icon"` | Your server's icon |
 | `"https://..."` | Any direct image URL |
 | `null` | No thumbnail |
+
+---
+
+### VOUCHING SYSTEM
+
+The bot includes a **fully customizable vouch system.**
+
+Users can vouch or devouch other members with a reason.
+
+`/vouch (user) (reason)`
+
+`/devouch (user) (reason)`
 
 ---
 
