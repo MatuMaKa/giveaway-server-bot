@@ -48,8 +48,6 @@ module.exports = {
           ephemeral: true
         });
       }
-
-      cooldowns.set(userId, now);
     }
 
     const vouchee = interaction.options.getUser("user");
@@ -102,5 +100,7 @@ module.exports = {
       content: `❌ Devouched **${vouchee.username}**.`,
       ephemeral: true
     });
+
+    cooldowns.set(userId, now);
   }
 };

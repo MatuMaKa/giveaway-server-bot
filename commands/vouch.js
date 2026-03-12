@@ -43,8 +43,6 @@ module.exports = {
           ephemeral: true
         });
       }
-
-      cooldowns.set(userId, now);
     }
 
     const vouchee = interaction.options.getUser("user");
@@ -110,5 +108,7 @@ module.exports = {
       content: "✅ Vouch submitted!",
       ephemeral: true
     });
+    
+    cooldowns.set(userId, now);
   }
 };
