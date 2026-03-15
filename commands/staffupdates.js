@@ -5,7 +5,7 @@ const { parsePlaceholders, formatDate, formatTime } = require("../utils/helpers"
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("staffupdate")
-    .setDescription("Post a staff promotion or demotion announcement.")
+    .setDescription("Post a staff promotion, demotion, resignation, or reinstatement announcement.")
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles)
     .addUserOption((opt) =>
       opt
