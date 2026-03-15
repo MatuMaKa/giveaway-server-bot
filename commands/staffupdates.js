@@ -20,7 +20,9 @@ module.exports = {
         .setRequired(true)
         .addChoices(
           { name: "Promoted", value: "promoted" },
-          { name: "Demoted",  value: "demoted"  }
+          { name: "Demoted",  value: "demoted"  },
+          { name: "Resigned", value: "resigned" },
+          { name: "Reinstated", value: "reinstated" },
         )
     )
     .addStringOption((opt) => {
@@ -133,17 +135,26 @@ module.exports = {
     let color;
     if (action === "promoted") color = cfg.color_promoted ?? "#57F287";
     else if (action === "demoted") color = cfg.color_demoted ?? "#ED4245";
+    else if (action === "resigned") color = cfg.color_resigned ?? "#ED4245";
+    else if (action === "reinstated") color = cfg.color_reinstated ?? "#57F287";
     else color = cfg.color_default ?? "#5865F2";
 
+    if (action === "promoted" || action === "demoted") {
+      const description = parsePlaceholders(cfg.default_descriptio, placeholders);
+    } else if (action === "resigned") {
+      const description = parsePlaceholders(cfg.resigned_description, placeholders);
+    } else if (action === "reinstated") {
+      const description = parsePlaceholders(cfg.reinstated_description, placeholders);
+    }
     const embed = new EmbedBuilder()
       .setTitle(parsePlaceholders(cfg.title, placeholders))
-      .setDescription(parsePlaceholders(cfg.description, placeholders))
+      .setDescription(description)
       .setColor(color)
       .setTimestamp();
 
     if (cfg.footer_text) {
       embed.setFooter({
-        text:    parsePlaceholders(cfg.footer_text, placeholders),
+        text: parsePlaceholders(cfg.footer_text, placeholders),
         iconURL: cfg.footer_icon ?? undefined,
       });
     }
@@ -154,8 +165,8 @@ module.exports = {
 
     if (cfg.show_executor) {
       embed.addFields({
-        name:   cfg.executor_label ?? "Actioned by",
-        value:  `<@${interaction.user.id}>`,
+        name: cfg.executor_label ?? "Actioned by",
+        value: `<@${interaction.user.id}>`,
         inline: false,
       });
     }
