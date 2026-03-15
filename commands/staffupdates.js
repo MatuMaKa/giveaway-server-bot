@@ -16,7 +16,7 @@ module.exports = {
     .addStringOption((opt) =>
       opt
         .setName("action")
-        .setDescription("Was this person promoted or demoted?")
+        .setDescription("Was this person promoted, demoted, resigned, or reinstated?")
         .setRequired(true)
         .addChoices(
           { name: "Promoted", value: "promoted" },
