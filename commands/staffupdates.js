@@ -22,7 +22,7 @@ module.exports = {
           { name: "Promoted", value: "promoted" },
           { name: "Demoted",  value: "demoted"  },
           { name: "Resigned", value: "resigned" },
-          { name: "Reinstated", value: "reinstated" },
+          { name: "Reinstated", value: "reinstated" }
         )
     )
     .addStringOption((opt) => {
