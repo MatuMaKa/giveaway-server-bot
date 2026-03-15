@@ -5,7 +5,7 @@ const { parsePlaceholders, formatDate, formatTime } = require("../utils/helpers"
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("staffupdate")
-    .setDescription("Post a staff promotion, demotion, resignation, or reinstatement announcement.")
+    .setDescription("Post a staff promotion or demotion announcement.")
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles)
     .addUserOption((opt) =>
       opt
@@ -22,7 +22,7 @@ module.exports = {
           { name: "Promoted", value: "promoted" },
           { name: "Demoted",  value: "demoted"  },
           { name: "Resigned", value: "resigned" },
-          { name: "Reinstated", value: "reinstated" }
+          { name: "Reinstated", value: "reinstated" },
         )
     )
     .addStringOption((opt) => {
@@ -80,10 +80,13 @@ module.exports = {
       const currentIndex = roles.findIndex((r) => member.roles.cache.has(r.id));
 
       if (currentIndex === -1) {
-        return interaction.reply({
-          content: `❌ **${targetUser.username}** doesn't have any configured staff roles. Please specify the new role manually.`,
-          ephemeral: true,
-        });
+        if (!newRoleId) {
+          resolvedNewRoleId = roles[0].id;
+          previousRoleId = null;
+        } else {
+          resolvedNewRoleId = newRoleId;
+          previousRoleId = null;
+        }
       }
 
       previousRoleId = roles[currentIndex].id;
@@ -139,12 +142,13 @@ module.exports = {
     else if (action === "reinstated") color = cfg.color_reinstated ?? "#57F287";
     else color = cfg.color_default ?? "#5865F2";
 
+    let description;
     if (action === "promoted" || action === "demoted") {
-      const description = parsePlaceholders(cfg.default_descriptio, placeholders);
+      description = parsePlaceholders(cfg.default_description, placeholders);
     } else if (action === "resigned") {
-      const description = parsePlaceholders(cfg.resigned_description, placeholders);
+      description = parsePlaceholders(cfg.resigned_description, placeholders);
     } else if (action === "reinstated") {
-      const description = parsePlaceholders(cfg.reinstated_description, placeholders);
+      description = parsePlaceholders(cfg.reinstated_description, placeholders);
     }
     const embed = new EmbedBuilder()
       .setTitle(parsePlaceholders(cfg.title, placeholders))
