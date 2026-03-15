@@ -149,7 +149,10 @@ module.exports = {
       description = parsePlaceholders(cfg.resigned_description, placeholders);
     } else if (action === "reinstated") {
       description = parsePlaceholders(cfg.reinstated_description, placeholders);
+    } else {
+      description = parsePlaceholders("{user} has been **{action}** from {previousRole} to {newRole}!", placeholders);
     }
+
     const embed = new EmbedBuilder()
       .setTitle(parsePlaceholders(cfg.title, placeholders))
       .setDescription(description)
